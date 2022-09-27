@@ -1,25 +1,46 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React, { useState } from 'react';
+
+
+
 
 function App() {
+
+//  function incrementCount() {
+//     setCount(count + 1)
+//     if (setCount <= 1);         
+//  }
+
+
+
+const[count, setCount] = useState(0)
+
+ const incrementCount = () => {
+  setCount(count + 1)
+ }
+
+ const countText = () => {
+  if (count === 0 || count > 1) {
+  return `${count} likes`
+ } else {
+  return `${count} like`
+ }
+
+}
+
+ 
+  
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <button onClick={incrementCount}>{countText()} </button> {count === 1 ? 'Like' : 'Likes'}
+
     </div>
   );
 }
+// {count === 1 ? 'Like' : 'Likes'}
 
 export default App;
